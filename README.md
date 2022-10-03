@@ -4,6 +4,11 @@
 
 To use this repo:
 
+## 0. Clone this repo
+```sh
+git clone https://github.com/bhomaidan1990/my_threejs_gui_example.git
+```
+
 ## 1. Install necessary Packages:
 ```sh
 npm i
