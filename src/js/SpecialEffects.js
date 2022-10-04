@@ -81,12 +81,15 @@ export class Blinker{
         this.scene = scene;
         this.camera = camera;
         this.obj_name = obj_name;
+        this.clock = new Clock(true);
+        this.frame_id = 0;
+        this.counter = 0;
     }
     
     blink = () => { 
+        this.counter += 1;
         this.frame_id = requestAnimationFrame(this.blink);
-        changeOpacity(this.scene, this.obj_name, Math.sin(this.frame_id / 10));
-        this.renderer.render(this.scene, this.camera);
+        changeOpacity(this.scene, this.obj_name, Math.sin(this.counter*Math.PI/32));       
     }
 
     stop_blinking = () => {
@@ -94,7 +97,6 @@ export class Blinker{
         changeOpacity(this.scene, this.obj_name, 1.0);
     }
 }
-
 
 export class PickPlace {
     /***********************************************************
@@ -157,7 +159,7 @@ export class PickPlace {
 
     animatePickPlace = () => {
         const tolerance = 1.1 * this.step;
-        let frame_id = requestAnimationFrame(this.animatePickPlace);
+        this.frame_id = requestAnimationFrame(this.animatePickPlace);
 
         if ((this.gripper.position.y > this.lego.position.y + 0.04)
             && this.motion_down && !this.planar_motion) {
@@ -256,18 +258,17 @@ export class PickPlace {
                     this.gripper.position.z += this.step;
                 }
                 else {
-                    cancelAnimationFrame(frame_id);
+                    cancelAnimationFrame(this.frame_id);
                     this.place();
                     this.animatePlace();
                 }
             }
         }
-        this.renderer.render(this.scene, this.camera);
     }
 
     animatePlace = () => {
         this.planar_motion = false;
-        let frame_id = requestAnimationFrame(this.animatePlace);
+        this.frame_id = requestAnimationFrame(this.animatePlace);
         /** TODO: to handle placing rotation */
         if ((this.gripper.position.y > (this.place_position.z * 0.48))
             && !this.motion_down) {
@@ -285,7 +286,7 @@ export class PickPlace {
                 )
             /** TODO: Move gripper up and make it vanish gradually */
             this.scene.remove(this.gripper);
-            cancelAnimationFrame(frame_id);
+            cancelAnimationFrame(this.frame_id);
             /********************************* 
              * Place Translation/Orientation *
              *********************************/
@@ -294,22 +295,18 @@ export class PickPlace {
                 if (this.place_rotation) {
                     if (this.lego.userData.rotation) {
                         this.lego.rotateY(Math.PI / 2);
-                        console.log("Place 4, 1 1");
                         this.lego.translateX(0.4);
                         this.lego.translateZ(0.2);
                     }
                     else {
-                        console.log("Place 4, 1 2");
                         this.lego.translateX(-0.6);
                     }
                 }
                 else {
                     if (this.lego.userData.rotation) {
-                        console.log("Place 4, 2 1");
                         this.lego.translateX(0.6);
                     }
                     else {
-                        console.log("Place 4, 2 2");
                         this.lego.rotateY(Math.PI / 2);
                         this.lego.translateX(-0.4);
                         this.lego.translateZ(0.2);
@@ -320,23 +317,19 @@ export class PickPlace {
             else if (this.lego.userData.size == 6) {
                 if (this.place_rotation) {
                     if (this.lego.userData.rotation) {
-                        console.log("Place 6, 1 1");
                         this.lego.rotateY(Math.PI / 2);
                         this.lego.translateX(0.8);
                         this.lego.translateZ(0.2);
                     }
                     else {
-                        console.log("Place 6, 1 2");
                         this.lego.translateX(-1.0);
                     }
                 }
                 else {
                     if (this.lego.userData.rotation) {
-                        console.log("Place 6, 2 1");
                         this.lego.translateX(1.0);
                     }
                     else {
-                        console.log("Place 6, 2 2");
                         this.lego.rotateY(Math.PI / 2);
                         this.lego.translateX(-0.8);
                         this.lego.translateZ(-0.2);
