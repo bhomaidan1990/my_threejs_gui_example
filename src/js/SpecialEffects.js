@@ -1,8 +1,7 @@
 
 import {
     Vector3,
-    Color,
-    Clock,
+    Color
 } from "three";
 
 import { createGripper } from "./ModelCreator.js";
@@ -81,8 +80,6 @@ export class Blinker{
         this.scene = scene;
         this.camera = camera;
         this.obj_name = obj_name;
-        this.clock = new Clock(true);
-        this.frame_id = 0;
         this.counter = 0;
     }
     
