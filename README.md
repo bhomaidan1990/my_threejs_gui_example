@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # my gui example
 
 ## Project setup
