@@ -2,7 +2,7 @@ import {
     Vector3,
 } from "three";
 
-import { createBase} from "./ModelCreator.js";
+import { createBase, loadYumi } from "./ModelCreator.js";
 import CreateLego from "./LegoCreator.js";
 import SceneCreator from "./SceneCreator.js";
 import {changeColor, changeOpacity, removeLego, Blinker, PickPlace} from "./SpecialEffects.js";
@@ -19,6 +19,7 @@ export default function init() {
     // const sE_ = new SpecialEffects(scene, camera, renderer)
 
     createBase(scene);
+    loadYumi(scene);
     
     /**************************************************
     * TODO:
