@@ -9,6 +9,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 /* BasePlate Dimensions 6.4 x ?? x 6.4 */
 import base_plate_path from "../assets/glb/BasePlate_16x16.glb";
 /* Lego Dimensions: (0.8 x 0.48 x 0.8) */
+import yumi_path from "../assets/glb/yumi.glb";
 
 class ModelCreator {
     /**********************************************
@@ -165,4 +166,33 @@ export function createGripper(scene, pos, gripper_color = 0xbbbbbb) {
 
     // adding to scene
     scene.add(gripper);
+}
+
+export function loadYumi(scene) {
+    let yumi_model = new Object3D();
+    const loader = new GLTFLoader();
+    const onLoad = (result, yumi) => {
+        console.log(result);
+        const model = result.scene.children[0];
+        model.traverse((child) => {
+            if (child.isMesh && child.geometry !== undefined) {
+                child.material.transparent = true;
+                child.material.opacity = 0.7;
+                console.log(child.name);
+            }
+        });
+        yumi.add(model.clone(true));
+    };
+    loader.load(
+        yumi_path,
+        gltf => onLoad(gltf, yumi_model),
+    ), undefined, function (error) {
+        console.log('An error happened');
+        };
+    
+    yumi_model.position.set(0.0, 0.0, -5.0);
+    yumi_model.rotation.set(0.0, -Math.PI/2, 0.0);
+    yumi_model.scale.set(20, 20, 20);
+
+    scene.add(yumi_model);
 }
