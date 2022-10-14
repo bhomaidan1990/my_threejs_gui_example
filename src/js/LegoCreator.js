@@ -27,13 +27,13 @@ export default class CreateLego {
         const light_color = new Color(0x3A5820);
 
         this.color_dict = {
-            red: red_color,
-            green: green_color,
-            blue: blue_color,
-            yellow: yellow_color,
-            white: white_color,
-            olive: olive_color,
-            light: light_color
+            r: red_color,
+            g: green_color,
+            b: blue_color,
+            y: yellow_color,
+            w: white_color,
+            o: olive_color,
+            l: light_color
         }
         this.color = this.color_dict[color];
         this.name = name;

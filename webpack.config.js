@@ -8,7 +8,7 @@ module.exports = {
     mode: 'development',
     /* Entry Point */
     entry: {
-        main: path.resolve(__dirname, 'src/index.js')
+        main: path.resolve(__dirname, './src/index.js')
     },
     /* Output Config */
     output: {

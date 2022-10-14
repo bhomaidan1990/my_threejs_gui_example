@@ -173,13 +173,13 @@ export function loadYumi(scene) {
     let yumi_model = new Object3D();
     const loader = new GLTFLoader();
     const onLoad = (result, yumi) => {
-        console.log(result);
+        // console.log(result);
         const model = result.scene.children[0];
         model.traverse((child) => {
             if (child.isMesh && child.geometry !== undefined) {
                 child.material.transparent = true;
                 child.material.opacity = 0.7;
-                console.log(child.name);
+                // console.log(child.name);
             }
         });
         yumi.add(model.clone(true));
