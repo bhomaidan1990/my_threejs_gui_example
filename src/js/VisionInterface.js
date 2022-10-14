@@ -19,107 +19,15 @@ export default class VisionInterface {
             p_08_00:[ 'g', 0 ], p_08_01:[ 'g', 0 ], p_08_02:[ 'g', 0 ], p_08_03:[ 'g', 0 ], p_08_04:[ 'g', 0 ], p_08_05:[ 'g', 0 ], p_08_06:[ 'g', 0 ], p_08_07:[ 'g', 0 ], p_08_08:[ 'g', 0 ], p_08_09:[ 'g', 0 ], p_08_10:[ 'g', 0 ], p_08_11:[ 'g', 0 ], p_08_12:[ 'g', 0 ], p_08_13:[ 'g', 0 ], p_08_14:[ 'g', 0 ], p_08_15:[ 'g', 0 ], p_08_16:[ 'g', 0 ], p_08_17:[ 'g', 0 ], p_08_18:[ 'g', 0 ], p_08_19:[ 'g', 0 ], p_08_20:[ 'g', 0 ], p_08_21:[ 'g', 0 ], p_08_22:[ 'g', 0 ],
             p_09_00:[ 'g', 0 ], p_09_01:[ 'g', 0 ], p_09_02:[ 'g', 0 ], p_09_03:[ 'g', 0 ], p_09_04:[ 'g', 0 ], p_09_05:[ 'g', 0 ], p_09_06:[ 'g', 0 ], p_09_07:[ 'g', 0 ], p_09_08:[ 'g', 0 ], p_09_09:[ 'g', 0 ], p_09_10:[ 'g', 0 ], p_09_11:[ 'g', 0 ], p_09_12:[ 'g', 0 ], p_09_13:[ 'g', 0 ], p_09_14:[ 'g', 0 ], p_09_15:[ 'g', 0 ], p_09_16:[ 'g', 0 ], p_09_17:[ 'g', 0 ], p_09_18:[ 'g', 0 ], p_09_19:[ 'g', 0 ], p_09_20:[ 'g', 0 ], p_09_21:[ 'g', 0 ], p_09_22:[ 'g', 0 ],
             p_10_00:[ 'g', 0 ], p_10_01:[ 'g', 0 ], p_10_02:[ 'g', 0 ], p_10_03:[ 'g', 0 ], p_10_04:[ 'g', 0 ], p_10_05:[ 'g', 0 ], p_10_06:[ 'g', 0 ], p_10_07:[ 'g', 0 ], p_10_08:[ 'g', 0 ], p_10_09:[ 'g', 0 ], p_10_10:[ 'g', 0 ], p_10_11:[ 'g', 0 ], p_10_12:[ 'g', 0 ], p_10_13:[ 'g', 0 ], p_10_14:[ 'g', 0 ], p_10_15:[ 'g', 0 ], p_10_16:[ 'g', 0 ], p_10_17:[ 'g', 0 ], p_10_18:[ 'g', 0 ], p_10_19:[ 'g', 0 ], p_10_20:[ 'g', 0 ], p_10_21:[ 'g', 0 ], p_10_22:[ 'g', 0 ]
-        
         }
         this.assembly_zone = ['p_02_08', 'p_02_09', 'p_02_10', 'p_02_11', 'p_03_11', 'p_04_11', 'p_05_11',
             'p_05_12', 'p_05_13', 'p_05_14', 'p_06_13'];
         this.corner_positions = ['p_01_07', 'p_01_15', 'p_07_07', 'p_07_15'];
-        /*********************************************************** 
-        TODO: to load Initial model parameters from .json file:
-        - model name, 
-        - lego types/colors [2, 4, 6], 
-        - lego rotation/position 
-        ***********************************************************/
-        this.corners = {
-            lego_101: { size: 2, position: { x: 1, y:  7, z: 0 }, rotation: false, color: "g" },
-            lego_102: { size: 2, position: { x: 1, y: 15, z: 0 }, rotation: false, color: "g" },
-            lego_103: { size: 2, position: { x: 7, y:  7, z: 0 }, rotation: false, color: "g" },
-            lego_104: { size: 2, position: { x: 7, y: 15, z: 0 }, rotation: false, color: "g" }
-        };
-
-        this.models = {
-            simple: {
-                lego_01: { size: 4, position: { x:  0, y:  0, z: 0 }, rotation: false, color: "b" },
-                lego_02: { size: 4, position: { x:  2, y:  0, z: 0 }, rotation: false, color: "r" },
-                lego_03: { size: 4, position: { x:  0, y: 21, z: 0 }, rotation: false, color: "b" },
-                lego_04: { size: 4, position: { x:  2, y: 21, z: 0 }, rotation: false, color: "r" },
-                lego_05: { size: 2, position: { x:  8, y:  8, z: 0 }, rotation: false, color: "w" },
-                lego_06: { size: 2, position: { x:  9, y:  8, z: 0 }, rotation: false, color: "w" },
-                lego_07: { size: 2, position: { x:  8, y: 10, z: 0 }, rotation: false, color: "r" },
-                lego_08: { size: 2, position: { x:  9, y: 10, z: 0 }, rotation: false, color: "r" },
-                lego_09: { size: 2, position: { x:  8, y: 12, z: 0 }, rotation: false, color: "y" },
-                lego_10: { size: 4, position: { x:  9, y: 12, z: 0 }, rotation: true,  color: "y" }                
-            },
-            complex: {
-                lego_01: { size: 4, position: { x:  0, y:  0, z: 0 }, rotation: false, color: "y" },
-                lego_02: { size: 4, position: { x:  2, y:  0, z: 0 }, rotation: false, color: "b" },
-                lego_03: { size: 4, position: { x:  0, y: 21, z: 0 }, rotation: false, color: "y" },
-                lego_04: { size: 4, position: { x:  2, y: 21, z: 0 }, rotation: false, color: "b" },
-                lego_05: { size: 2, position: { x:  8, y:  7, z: 0 }, rotation: false, color: "w" },
-                lego_06: { size: 2, position: { x:  9, y:  7, z: 0 }, rotation: false, color: "w" },
-                lego_07: { size: 2, position: { x:  9, y:  9, z: 0 }, rotation: false, color: "r" },
-                lego_08: { size: 2, position: { x:  9, y: 10, z: 0 }, rotation: false, color: "r" },
-                lego_09: { size: 4, position: { x:  9, y: 12, z: 0 }, rotation: false, color: "y" },
-                lego_10: { size: 2, position: { x: 10, y: 12, z: 0 }, rotation: false, color: "y" },
-                lego_11: { size: 2, position: { x:  0, y:  3, z: 0 }, rotation: false, color: "w" },
-                lego_12: { size: 2, position: { x:  0, y:  5, z: 0 }, rotation: false, color: "o" },
-                lego_13: { size: 2, position: { x:  2, y:  3, z: 0 }, rotation: false, color: "b" },
-                lego_14: { size: 2, position: { x:  4, y:  1, z: 0 }, rotation: false, color: "r" },
-                lego_15: { size: 2, position: { x:  4, y: 21, z: 0 }, rotation: false, color: "r" },
-                lego_16: { size: 2, position: { x: 10, y:  7, z: 0 }, rotation: false, color: "w" },
-                lego_17: { size: 2, position: { x: 10, y:  9, z: 0 }, rotation: false, color: "r" },
-                lego_18: { size: 4, position: { x:  8, y:  9, z: 0 }, rotation: false, color: "r" },            
-                lego_19: { size: 4, position: { x:  8, y: 12, z: 0 }, rotation: false, color: "y" },
-                lego_20: { size: 2, position: { x:  8, y: 15, z: 0 }, rotation: false, color: "l" },
-                lego_21: { size: 2, position: { x:  9, y: 15, z: 0 }, rotation: false, color: "l" },            
-                lego_22: { size: 2, position: { x:  8, y: 17, z: 0 }, rotation: false, color: "o" },
-                lego_23: { size: 2, position: { x:  0, y: 17, z: 0 }, rotation: false, color: "o" },
-                lego_24: { size: 2, position: { x:  0, y: 19, z: 0 }, rotation: false, color: "w" },
-                lego_25: { size: 2, position: { x:  2, y: 19, z: 0 }, rotation: false, color: "b" }
-            }
-        };
     }
 
     init=(scene, model)=> { 
         this.scene = scene;
         this.model = model;
-
-        // this.createCorners();
-        // this.createInitialState();
-    }
-
-    createCorners=()=> { 
-        let pos;
-        for (const corner of Object.keys(this.corners)) {
-            pos = new Vector3(
-                this.corners[corner]["position"]["x"],
-                this.corners[corner]["position"]["y"],
-                this.corners[corner]["position"]["z"]
-            );
-            new CreateLego(this.scene,
-                this.corners[corner]["size"],
-                this.corners[corner]["color"],
-                corner,
-                pos,
-                this.corners[corner]["rotation"]);
-        }
-    }
-
-    createInitialState=()=> {
-        let pos;
-        for (const lego of Object.keys(this.models[this.model])) {
-            pos = new Vector3(
-                this.models[this.model][lego]["position"]["x"],
-                this.models[this.model][lego]["position"]["y"],
-                this.models[this.model][lego]["position"]["z"]
-            );
-            new CreateLego(this.scene,
-                this.models[this.model][lego]["size"],
-                this.models[this.model][lego]["color"],
-                lego,
-                pos,
-                this.models[this.model][lego]["rotation"]);
-        }
     }
 
     removeLegoByPos = (pos) => {
