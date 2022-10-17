@@ -24,5 +24,11 @@ npm run build
 npm run serve
 ```
 
-## 4. Open the browser to the following ip/port
+## 4. Install and Launch ROS Bridge Server
+
+```sh
+sudo apt install ros-noetic-rosbridge-server
+roslaunch rosbridge_server rosbridge_websocket.launch 
+```
+## 5. Open the browser to the following ip/port
 > [localhost](http://127.0.0.1:3000)
