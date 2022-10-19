@@ -12,7 +12,7 @@ export default function init() {
     // const renderer = sceneCreator_.getRenderer();
 
     createBase(scene);
-    loadYumi(scene);
+    // loadYumi(scene);
     
     const vision_iface = new VisionInterface();
     vision_iface.init(scene, "complex");
