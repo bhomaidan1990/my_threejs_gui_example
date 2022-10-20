@@ -60,10 +60,10 @@ export default class VisionInterface {
                     let rot = false;
                     if (size === 4) {
                         z = msg_obj[lego][size - 2] - 1;
-                        rot = msg_obj[lego][size - 3];
+                        rot = msg_obj[lego][size - 1];
                     }
                     let lego_pos = new Vector3(x, y, z);
-                    new CreateLego(this.assembly, size, c, lego_id, lego_pos)
+                    new CreateLego(this.assembly, size, c, lego_id, lego_pos, rot)
                 }
             }
             this.scene.add(this.assembly);
