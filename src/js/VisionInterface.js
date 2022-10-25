@@ -45,7 +45,7 @@ export default class VisionInterface {
             this.assembly.name = "assembly";
 
             const msg_obj = JSON.parse(msg);
-            console.log(msg_obj);
+            // console.log(msg_obj);
             for (let lego in msg_obj) {
 
                 if (msg_obj[lego]) {
@@ -67,6 +67,7 @@ export default class VisionInterface {
                 }
             }
             this.scene.add(this.assembly);
+            this.old_model = msg;
         }
     }
 
